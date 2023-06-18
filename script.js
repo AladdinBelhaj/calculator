@@ -4,41 +4,14 @@ multiplyButton = document.getElementById('multiply');
 subtractButton = document.getElementById('subtract');
 equalsButton = document.getElementById('equals');
 result = document.querySelector('span');
-var total = 0;
+buttons = document.querySelectorAll('button');
+
+
+
 var arr = [];
-var currentValue = 0;
 
 
 
-equalsButton.addEventListener('click',function(){
-    arr.push(result.textContent);
-    arr = arr.join('').split(' ').map(item =>item.trim());
-
-    console.log(arr);
-    currentValue = Number(arr[0]);
-    for(let i = 1; i < arr.length; i++){
-        
-        if (arr[i] == "+"){
-            total = currentValue + Number(arr[i+1]);
-            currentValue = total;
-        }
-        if (arr[i] == "-"){
-            total = currentValue - Number(arr[i+1]);
-            currentValue = total;
-        }
-        if (arr[i] == "*"){
-            total = currentValue * Number(arr[i+1]);
-            currentValue = total;
-        }
-        if (arr[i] == "/"){
-            total = currentValue / Number(arr[i+1]);
-            currentValue = total;
-        }
-}
-    console.log(total);
-    result.textContent = total;
-    arr = [total];
-});
 
 
 divs = document.querySelectorAll('div');
@@ -46,29 +19,102 @@ divs = document.querySelectorAll('div');
 divs.forEach(div=>{
     div.addEventListener('click',function(){
         result.textContent += div.textContent;
+        arr.push(div.textContent);
+        console.log(arr);
     });
 })
 
 
-addButton.addEventListener('click',function(){
-    result.textContent += " " + "+" + " ";
 
+function add(a,b){
+    return a + b;
+}
+function subtract(a,b){
+    return a - b;
+}
+
+function multiply(a,b){
+    return a * b;
+}
+
+function divide(a,b){
+    return a / b;
+}
+
+
+
+
+
+addButton.addEventListener('click',function(){
+    arr.push('+');
+    run();
     });
 
 subtractButton.addEventListener('click',function(){
-    result.textContent += " " + "-" + " ";
-    
+    arr.push('-');
+    run();
+    });
+multiplyButton.addEventListener('click',function(){
+    arr.push('*');
+    run();
+    });
+divideButton.addEventListener('click',function(){
+    arr.push('/');
+    run();
     });
 
-multiplyButton.addEventListener('click',function(){
-    result.textContent += " " + "*" + " ";
-    
-    });
-    
-divideButton.addEventListener('click',function(){
-        result.textContent += " " + "/" + " ";
-    
-        });
+
+equalsButton.addEventListener('click',run())
+
+
+
+
+function run(){
+    if(arr.includes('+')){
+        arr = arr.join('').split('+');
+        console.log(arr);
+        a = Number(arr[0]);
+        b = Number(arr[1]);
+        sum = add(a,b);
+        arr = [sum];
+        console.log(sum);
+        console.log(arr);
+        result.textContent = sum;
+    }else if(arr.includes('-')){
+        arr = arr.join('').split('-');
+        console.log(arr);
+        a = Number(arr[0]);
+        b = Number(arr[1]);
+        sum = subtract(a,b);
+        arr = [sum];
+        console.log(sum);
+        console.log(arr);
+        result.textContent = sum;
+    }
+    else if(arr.includes('*')){
+        arr = arr.join('').split('*');
+        console.log(arr);
+        a = Number(arr[0]);
+        b = Number(arr[1]);
+        sum = multiply(a,b);
+        arr = [sum];
+        console.log(sum);
+        console.log(arr);
+        result.textContent = sum;
+    }
+    else if(arr.includes('/')){
+        arr = arr.join('').split('/');
+        console.log(arr);
+        a = Number(arr[0]);
+        b = Number(arr[1]);
+        sum = divide(a,b);
+        arr = [sum];
+        console.log(sum);
+        console.log(arr);
+        result.textContent = sum;
+    }
+
+};
 
 
 
