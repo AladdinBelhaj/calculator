@@ -1,0 +1,16 @@
+section{
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+section div{
+    flex: 1;
+    flex-basis: calc(100% / 3);
+    outline: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
