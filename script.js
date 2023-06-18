@@ -1,4 +1,7 @@
 addButton = document.getElementById('add');
+divideButton = document.getElementById('divide');
+multiplyButton = document.getElementById('multiply');
+subtractButton = document.getElementById('subtract');
 equalsButton = document.getElementById('equals');
 result = document.querySelector('span');
 var total = 0;
@@ -27,8 +30,14 @@ equalsButton.addEventListener('click',function(){
             total = currentValue * Number(arr[i+1]);
             currentValue = total;
         }
+        if (arr[i] == "/"){
+            total = currentValue / Number(arr[i+1]);
+            currentValue = total;
+        }
 }
     console.log(total);
+    result.textContent = total;
+    arr = [total];
 });
 
 
@@ -46,7 +55,20 @@ addButton.addEventListener('click',function(){
 
     });
 
+subtractButton.addEventListener('click',function(){
+    result.textContent += " " + "-" + " ";
+    
+    });
 
+multiplyButton.addEventListener('click',function(){
+    result.textContent += " " + "*" + " ";
+    
+    });
+    
+divideButton.addEventListener('click',function(){
+        result.textContent += " " + "/" + " ";
+    
+        });
 
 
 
