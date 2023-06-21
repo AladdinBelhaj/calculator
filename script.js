@@ -3,23 +3,30 @@ divideButton = document.getElementById('divide');
 multiplyButton = document.getElementById('multiply');
 subtractButton = document.getElementById('subtract');
 equalsButton = document.getElementById('equals');
+resetButton = document.getElementById('reset');
 result = document.querySelector('span');
-buttons = document.querySelectorAll('button');
+
 var sum = 0;
-
-
 var arr = [];
-
-
 var counter = 0;
 
 
-divs = document.querySelectorAll('div');
 
-divs.forEach(div=>{
-    div.addEventListener('click',function(){
-        result.textContent += div.textContent;
-        arr.push(div.textContent);
+resetButton.addEventListener('click',function(){
+    sum = 0;
+    arr = [];
+    result.textContent = sum;
+});
+
+numbers = document.querySelectorAll('.numbers');
+
+numbers.forEach(number=>{
+    number.addEventListener('click',function(){
+        if(result.textContent == '+' || result.textContent == '-' || result.textContent == '*' || result.textContent == '/' ){
+            result.textContent = "";
+        }
+        result.textContent += number.textContent;
+        arr.push(number.textContent);
         console.log(arr);
     });
 })
@@ -40,56 +47,6 @@ function multiply(a,b){
 function divide(a,b){
     return a / b;
 }
-
-
-
-
-
-addButton.addEventListener('click',function(){
-    if(counter == 1){
-        run();
-        counter = 0;
-    }
-    arr.push('+');
-    counter++;
-    
-
-    });
-
-
-
-subtractButton.addEventListener('click',function(){
-    if(counter == 1){
-        run();
-        counter = 0;
-    }
-    arr.push('-');
-    counter++;
-    });
-
-multiplyButton.addEventListener('click',function(){
-    if(counter == 1){
-        run();
-        counter = 0;
-    }
-    arr.push('*');
-    counter++;
-    });
-
-    
-divideButton.addEventListener('click',function(){
-    if(counter == 1){
-        run();
-        counter = 0;
-    }
-    arr.push('/');
-    counter++;
-    });
-
-
-equalsButton.addEventListener('click',run);
-
-
 
 
 function run(){
@@ -136,8 +93,46 @@ function run(){
         console.log(arr);
         result.textContent = sum;
     }
-
 };
+
+
+
+
+function calcHandler(param){
+    if(counter == 1){
+        run();
+        counter = 0;
+    }
+    arr.push(param);
+    result.textContent = param;
+    counter++;
+}
+
+
+
+addButton.addEventListener('click',function(){
+    calcHandler('+');
+    });
+
+
+subtractButton.addEventListener('click',function(){
+    calcHandler('-');
+    });
+
+multiplyButton.addEventListener('click',function(){
+    calcHandler('*');
+    });
+
+
+divideButton.addEventListener('click',function(){
+    calcHandler('/');
+    });
+
+
+equalsButton.addEventListener('click',run);
+
+
+
 
 
 

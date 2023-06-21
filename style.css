@@ -1,16 +1,55 @@
-section{
-    height: 400px;
-    width: 400px;
+body{
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+span{
+    font-size: 75px;
+    margin-right: 8px;
+    font-family: "digital7italic", sans-serif;
 }
 
 
-section div{
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.top-half{
+    width: 350px;
+    height: 80px;
+    outline: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bottom-half{
+    height: 350px;
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    outline: 1px black solid;
+}
+
+
+.bottom-half div{
     flex: 1;
-    flex-basis: calc(100% / 3);
+    flex-basis: calc(300px / 4);
     outline: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 40%;
+}
+
+
+
+@font-face {
+    font-family: "digital7italic";
+    src: url("Digital7Italic-BW658.ttf");
 }
