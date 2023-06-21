@@ -5,13 +5,13 @@ subtractButton = document.getElementById('subtract');
 equalsButton = document.getElementById('equals');
 result = document.querySelector('span');
 buttons = document.querySelectorAll('button');
-
+var sum = 0;
 
 
 var arr = [];
 
 
-
+var counter = 0;
 
 
 divs = document.querySelectorAll('div');
@@ -46,25 +46,48 @@ function divide(a,b){
 
 
 addButton.addEventListener('click',function(){
+    if(counter == 1){
+        run();
+        counter = 0;
+    }
     arr.push('+');
-    run();
+    counter++;
+    
+
     });
+
+
 
 subtractButton.addEventListener('click',function(){
+    if(counter == 1){
+        run();
+        counter = 0;
+    }
     arr.push('-');
-    run();
+    counter++;
     });
+
 multiplyButton.addEventListener('click',function(){
+    if(counter == 1){
+        run();
+        counter = 0;
+    }
     arr.push('*');
-    run();
+    counter++;
     });
+
+    
 divideButton.addEventListener('click',function(){
+    if(counter == 1){
+        run();
+        counter = 0;
+    }
     arr.push('/');
-    run();
+    counter++;
     });
 
 
-equalsButton.addEventListener('click',run())
+equalsButton.addEventListener('click',run);
 
 
 
