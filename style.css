@@ -1,14 +1,23 @@
-body{
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh; 
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
+    background: #f6eb54;
+    }
 
 span{
     font-size: 75px;
     margin-right: 8px;
     font-family: "digital7italic", sans-serif;
+    overflow: auto;
 }
 
 
@@ -16,40 +25,60 @@ main{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 350px;
+    height: 450px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #2e495c;
 }
 
 .top-half{
-    width: 350px;
+    width: 300px;
     height: 80px;
-    outline: 1px solid black;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background: rgb(162,188,88);
+    background: linear-gradient(0deg, rgba(162,188,88,1) 59%, rgba(192,219,116,1) 97%);
 }
 
 .bottom-half{
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    outline: 1px black solid;
+
 }
 
 
 .bottom-half div{
     flex: 1;
-    flex-basis: calc(300px / 4);
-    outline: 1px solid black;
+    flex-basis: calc(250px / 4);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 40%;
+    background:#5f7783;
+    color: white;
+    font-size: 30px;
 }
 
+.bottom-half div:hover{
+    cursor: pointer;
+}
 
+.bottom-half div:active{
+    background: #89b2c7;
+}
 
 @font-face {
     font-family: "digital7italic";
     src: url("Digital7Italic-BW658.ttf");
+}
+
+
+#reset{
+    background: #bf1e2d;
 }

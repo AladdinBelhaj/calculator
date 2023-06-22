@@ -12,17 +12,10 @@ var counter = 0;
 
 
 
-resetButton.addEventListener('click',function(){
-    sum = 0;
-    arr = [];
-    result.textContent = sum;
-});
-
 numbers = document.querySelectorAll('.numbers');
-
 numbers.forEach(number=>{
     number.addEventListener('click',function(){
-        if(result.textContent == '+' || result.textContent == '-' || result.textContent == '*' || result.textContent == '/' ){
+        if(result.textContent == '+' || result.textContent == '-' || result.textContent == '*' || result.textContent == '/' || result.textContent == "0"){
             result.textContent = "";
         }
         result.textContent += number.textContent;
@@ -30,7 +23,6 @@ numbers.forEach(number=>{
         console.log(arr);
     });
 })
-
 
 
 function add(a,b){
@@ -108,7 +100,11 @@ function calcHandler(param){
     counter++;
 }
 
-
+resetButton.addEventListener('click',function(){
+    sum = 0;
+    arr = [];
+    result.textContent = "";
+});
 
 addButton.addEventListener('click',function(){
     calcHandler('+');
