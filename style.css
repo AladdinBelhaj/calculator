@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #f6eb54;
+    flex-direction: column;
     }
 
 span{
@@ -49,7 +50,6 @@ main{
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-
 }
 
 
@@ -82,3 +82,4 @@ main{
 #reset{
     background: #bf1e2d;
 }
+
