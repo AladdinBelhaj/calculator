@@ -20,7 +20,6 @@ numbers.forEach(number=>{
         }
         result.textContent += number.textContent;
         arr.push(number.textContent);
-        console.log(arr);
     });
 })
 
@@ -44,45 +43,33 @@ function divide(a,b){
 function run(){
     if(arr.includes('+')){
         arr = arr.join('').split('+');
-        console.log(arr);
         a = Number(arr[0]);
         b = Number(arr[1]);
         sum = add(a,b);
         arr = [sum];
-        console.log(sum);
-        console.log(arr);
         result.textContent = sum;
     }else if(arr.includes('-')){
         arr = arr.join('').split('-');
-        console.log(arr);
         a = Number(arr[0]);
         b = Number(arr[1]);
         sum = subtract(a,b);
         arr = [sum];
-        console.log(sum);
-        console.log(arr);
         result.textContent = sum;
     }
     else if(arr.includes('*')){
         arr = arr.join('').split('*');
-        console.log(arr);
         a = Number(arr[0]);
         b = Number(arr[1]);
         sum = multiply(a,b);
         arr = [sum];
-        console.log(sum);
-        console.log(arr);
         result.textContent = sum;
     }
     else if(arr.includes('/')){
         arr = arr.join('').split('/');
-        console.log(arr);
         a = Number(arr[0]);
         b = Number(arr[1]);
         sum = divide(a,b);
         arr = [sum];
-        console.log(sum);
-        console.log(arr);
         result.textContent = sum;
     }
 };
